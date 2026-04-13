@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FriendCard = ({ friend }) => {
-  console.log(friend);
-  const { name, picture, tags, status, days_since_contact } = friend;
+  // console.log(friend);
+  const { id,name, picture, tags, status, days_since_contact } = friend;
   return (
-    <div className="card bg-base-100  shadow-sm">
+    <Link href={`/${id}`} className="card bg-base-100  shadow-sm">
       <div className="card-body justify-center items-center space-y-2">
         <div className="rounded-full object-cover overflow-hidden w-20 h-20 flex justify-center items-center">
           <Image
@@ -37,7 +38,7 @@ const FriendCard = ({ friend }) => {
           {status}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
