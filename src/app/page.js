@@ -1,10 +1,11 @@
 import Banner from "@/components/homePage/banner/Banner";
-import Image from "next/image";
+import YourFriends from "@/components/homePage/yourFriends/YourFriends";
 
 export default function Home() {
   return (
     <>
       <Banner />
+      <YourFriends/>
     </>
   );
 }

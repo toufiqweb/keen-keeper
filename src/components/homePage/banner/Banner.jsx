@@ -23,7 +23,7 @@ const Banner = () => {
 
       <FriendInfoCards />
 
-      <div className="border-b w-full border-black/50 px-10 py-10"></div>
+      <div className="border-b w-full border-black/10 px-10 py-10"></div>
     </div>
   );
 };
