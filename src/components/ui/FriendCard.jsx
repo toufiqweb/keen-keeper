@@ -33,7 +33,7 @@ const FriendCard = ({ friend }) => {
           className={`card-actions rounded-full px-3 py-1 text-center text-white 
             ${status === "overdue" && " bg-red-700"} 
           ${status === "on-track" && " bg-green-900"}
-          ${status === "almost due" && " bg-yellow-700"}`}
+          ${status === "almost due" && " bg-yellow-500"}`}
         >
           {status}
         </div>
