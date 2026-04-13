@@ -11,7 +11,7 @@ const MyLink = ({ href, children }) => {
   return (
     <li>
       <Link
-        className={`btn border-none ${pathname === href ? "bg-[#244D3F] text-white" : "text-[#64748B] bg-transparent"}`}
+        className={`btn border-none rounded-md ${pathname === href ? "bg-[#244D3F] text-white" : "text-[#64748B] bg-transparent"}`}
         href={href}
       >
         {href === "/" && <RiHome2Line />}
