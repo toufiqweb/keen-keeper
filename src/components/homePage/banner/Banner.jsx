@@ -22,6 +22,8 @@ const Banner = () => {
       </div>
 
       <FriendInfoCards />
+
+      <div className="border-b w-full border-black/50 px-10 py-10"></div>
     </div>
   );
 };
