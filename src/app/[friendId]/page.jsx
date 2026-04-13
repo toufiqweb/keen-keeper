@@ -24,7 +24,7 @@ const FriendDetailPage = async ({ params }) => {
  
 
   return (
-    <div className=" container mx-auto my-10 grid grid-cols-3 gap-4 md:gap-10">
+    <div className=" container mx-auto my-10 grid justify-items-center  md:grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 ">
       {/* left */}
       <FriendDetailsPageLeft matchFriend={matchFriend}/>
       {/* right */}

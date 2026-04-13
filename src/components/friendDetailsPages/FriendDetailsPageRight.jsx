@@ -1,12 +1,29 @@
-import React from "react";
+"use client";
+import { TimelineContext } from "@/lib/contexts/TimelineContextProvider";
+import React, { useContext } from "react";
 import { BiMessageDots } from "react-icons/bi";
 import { LiaVideoSolid } from "react-icons/lia";
 import { LuPhoneCall } from "react-icons/lu";
+import { MdHistory } from "react-icons/md";
 
 const FriendDetailsPageRight = ({ matchFriend }) => {
   const { days_since_contact, goal, next_due_date } = matchFriend;
+
+  const { timelines, setTimelines, trackingBtn, setTrackingBtn } =
+    useContext(TimelineContext);
+  //   console.log(timelines);
+
+  const btnHandler = (btn) => {
+    // console.log("call btn clicked", btn);
+
+    setTrackingBtn(btn);
+    setTimelines([...timelines, matchFriend]);
+  };
+
+  console.log("tracking btn", trackingBtn);
+
   return (
-    <div className="col-span-2 px-5 bg-green-400 space-y-5">
+    <div className="col-span-1 lg:col-span-2 px-5   space-y-5">
       <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 lg:gap-15">
         <div className="card bg-base-100 justify-center border border-base-200 items-center shadow-sm">
           <div className="p-10 text-center">
@@ -45,28 +62,80 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
         </p>
       </div>
 
-      <div className="card bg-base-100 justify-center border border-base-200 p-7 space-y-4">
+      <div className="card bg-base-100 shadow-md justify-center border border-base-200 p-7 space-y-4">
         <h2 className="text-2xl text-black/75 font-semibold">Quick Check-In</h2>
-        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 lg:gap-15">
-          <div className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm">
+        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-2 ">
+          <div
+            onClick={() => btnHandler("call")}
+            className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm"
+          >
             <div className="px-5 py-7 text-center flex flex-col justify-center items-center">
               <LuPhoneCall className="text-4xl font-bold mb-4" />
               <p className="text-2xl ">Call</p>
             </div>
           </div>
-          <div className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm">
+          <div
+            onClick={() => btnHandler("text")}
+            className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm"
+          >
             <div className="px-5 py-7 text-center flex flex-col justify-center items-center">
               <BiMessageDots className="text-4xl font-bold mb-4" />
               <p className="text-2xl ">Text</p>
             </div>
           </div>
-          <div className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm">
+          <div
+            onClick={() => btnHandler("video")}
+            className="card bg-[#F8FAFC] justify-center border border-base-300 items-center shadow-sm"
+          >
             <div className="px-5 py-7 text-center flex flex-col justify-center items-center ">
               <LiaVideoSolid className="text-4xl font-bold mb-4" />
               <p className="text-2xl ">Video</p>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className=" p-8 rounded-lg bg-base-100   shadow-sm space-y-3">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-2xl text-black/75 font-semibold">
+            Recent Interactions
+          </p>
+          <button className="btn text-xl text-black">
+            <MdHistory />
+            Full History
+          </button>
+        </div>
+
+        {timelines.map((timeline, ind) => (
+          <div key={ind} className=" text-xl text-black/50">
+            <div>
+              {trackingBtn === "call" && (
+                <LuPhoneCall className="text-4xl font-bold mb-4" />
+              )}
+              {trackingBtn === "text" && (
+                <BiMessageDots className="text-4xl font-bold mb-4" />
+              )}
+              {trackingBtn === "video" && (
+                <LiaVideoSolid className="text-4xl font-bold mb-4" />
+              )}
+              <div>
+                <p>
+                  {trackingBtn === "call" && "Meetup"}
+                  {trackingBtn === "text" && "text"}
+                  {trackingBtn === "video" && "Video"}
+                </p>
+
+                <p>
+                  {trackingBtn === "call" && "Industry conference meetup"}
+                  {trackingBtn === "text" && "Asked for career advice"}
+                  {trackingBtn === "video" && "Asked for career advice"}
+                </p>
+
+              </div>
+            </div>
+            <span className="font-semibold text-black"> {goal} days</span>
+          </div>
+        ))}
       </div>
     </div>
   );
