@@ -1,9 +1,10 @@
 import React from 'react';
+import { CircleLoader } from 'react-spinners';
 
 const loading = () => {
     return (
         <div className='h-screen flex justify-center items-center  w-full text-5xl'>
-            <h1>loading</h1>
+            <CircleLoader color='green' />
         </div>
     );
 };
