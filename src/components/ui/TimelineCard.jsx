@@ -13,30 +13,28 @@ const TimelineCard = ({ timeline }) => {
     <div className=" text-xl text-black flex  shadow-md rounded-lg gap-4 sm:gap-2  items-center border border-base-300 sha p-5">
       <div className="flex items-center justify-center gap-5 ">
         <div>
-          {timeline.type === "call" && (
+          {type === "call" && (
             <Image src={callImage} alt="call" width={30} height={30} />
           )}
 
-          {timeline.type === "text" && (
+          {type === "text" && (
             <Image src={textImage} alt="call" width={30} height={30} />
           )}
-          {timeline.type === "video" && (
+          {type === "video" && (
             <Image src={videoImage} alt="call" width={30} height={30} />
           )}
         </div>
         <div>
           <div className="text-lg md:text-xl flex flex-col sm:flex-row sm:items-center gap-2">
             <p className="font-bold ">
-              {timeline.type === "call" && "Meetup"}
-              {timeline.type === "text" && "text"}
-              {timeline.type === "video" && "Video"}
+              {type === "call" && "Call"}
+              {type === "text" && "Text"}
+              {type === "video" && "Video"}
             </p>
             <p> with {matchFriend.name}</p>
           </div>
 
-          <p className="text-black/50 text-sm sm:text-md ">
-            {timeline.formatted}
-          </p>
+          <p className="text-black/50 text-sm sm:text-md ">{formatted}</p>
         </div>
       </div>
     </div>

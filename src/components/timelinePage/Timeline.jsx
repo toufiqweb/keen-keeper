@@ -3,12 +3,13 @@ import React, { useContext, useState } from "react";
 import { TimelineContext } from "@/lib/contexts/TimelineContextProvider";
 import TimelineCard from "../ui/TimelineCard";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { FaPlus, FaRegClock } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa";
 
 const Timeline = () => {
   const { timelines, selectedType, setSelectedType } =
     useContext(TimelineContext);
 
+  const [search, setSearch] = useState("");
   // const {type } = timelines
 
   // const CallBtnFiltered = timelines.filter(timeline =>  timeline.type === "call")
@@ -19,42 +20,58 @@ const Timeline = () => {
     setSelectedType(type);
   };
 
-  const filteredTimelines =
-    selectedType === "All"
-      ? timelines
-      : timelines.filter((timeline) => timeline.type === selectedType);
+  const filteredTimelines = timelines
+    .filter((timeline) =>
+      selectedType === "All" ? timelines : timeline.type === selectedType,
+    )
+    .filter((timeline) =>
+      timeline.matchFriend.name.toLowerCase().includes(search.toLowerCase()),
+    );
 
   return (
     <div className="my-20 px-5 space-y-5">
       <h1 className="text-4xl font-bold">Timeline</h1>
 
-      <div className="dropdown dropdown-bottom mt-10">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn font-normal text-black/50 gap-5 rounded-lg border border-base-300 px-2 py-3 m-1 flex justify-between items-center"
-        >
-          <span className="text-xl"> {selectedType}</span>
-          <MdKeyboardArrowDown className="text-2xl" />
+      <div className="flex justify-between items-center">
+        <div className="dropdown dropdown-bottom mt-10">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn font-normal text-black/50 gap-5 rounded-lg border border-base-300 px-2 py-3 m-1 flex justify-between items-center"
+          >
+            <span className="text-xl"> {selectedType}</span>
+            <MdKeyboardArrowDown className="text-2xl" />
+          </div>
+          <ul
+            tabIndex="-1"
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <li onClick={() => handlerClick("All")}>
+              <a>All</a>
+            </li>
+            <li onClick={() => handlerClick("call")}>
+              <a>Call</a>
+            </li>
+            <li onClick={() => handlerClick("text")}>
+              <a>Text</a>
+            </li>
+            <li onClick={() => handlerClick("video")}>
+              <a>Video</a>
+            </li>
+          </ul>
         </div>
-        <ul
-          tabIndex="-1"
-          className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-        >
-          <li onClick={() => handlerClick("All")}>
-            <a>All</a>
-          </li>
-          <li onClick={() => handlerClick("call")}>
-            <a>Call</a>
-          </li>
-          <li onClick={() => handlerClick("text")}>
-            <a>Text</a>
-          </li>
-          <li onClick={() => handlerClick("video")}>
-            <a>Video</a>
-          </li>
-        </ul>
+
+        <div>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search friends..."
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
       </div>
+
       {filteredTimelines.length === 0 ? (
         <div className="min-h-100 flex items-center justify-center px-4 py-12">
           <div className="max-w-md w-full text-center">

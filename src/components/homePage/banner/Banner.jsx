@@ -3,7 +3,7 @@ import FriendInfoCards from "./FriendInfoCards";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="px-5">
       <div className="hero  my-20">
         <div className="hero-content text-center">
           <div className="">
