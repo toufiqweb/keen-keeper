@@ -5,7 +5,7 @@ export const TimelineContext = createContext();
 
 const TimelineContextProvider = ({ children }) => {
   const [timelines, setTimelines] = useState([]);
-  const [selectedType, setSelectedType] = useState("all");
+  const [selectedType, setSelectedType] = useState("All");
 
   const value = {
     timelines,
