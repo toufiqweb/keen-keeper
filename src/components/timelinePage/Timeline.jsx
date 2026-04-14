@@ -18,8 +18,9 @@ const Timeline = () => {
   const handlerClick = (type) => {
     setSelectedType(type);
   };
+
   const filteredTimelines =
-    selectedType === "all"
+    selectedType === "All"
       ? timelines
       : timelines.filter((timeline) => timeline.type === selectedType);
 
