@@ -13,4 +13,4 @@ pnpm dev
 bun dev
 ```
 
-react, next.js , tailwind css , daisy ui , react icons , 
+react, next.js , tailwind css , daisy ui , react icons , react toastify

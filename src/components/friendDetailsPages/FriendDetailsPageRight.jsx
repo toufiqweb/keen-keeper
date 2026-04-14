@@ -6,6 +6,7 @@ import { LiaVideoSolid } from "react-icons/lia";
 import { LuPhoneCall } from "react-icons/lu";
 import { MdHistory } from "react-icons/md";
 import FriendDetailsTimelineCard from "../ui/FriendDetailsTimelineCard";
+import { toast } from "react-toastify";
 
 const FriendDetailsPageRight = ({ matchFriend }) => {
   const { days_since_contact, goal, next_due_date } = matchFriend;
@@ -29,10 +30,33 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
       ...timelines,
       type: btn,
       formatted,
-      
     };
 
-    setTimelines([...timelines, newTimeline].reverse());
+    const reverseTimeline =[...timelines, newTimeline].reverse()
+    setTimelines(reverseTimeline);
+
+    if (btn === "call") {
+      toast.success(
+        <span className="flex items-center gap-2">
+          <LuPhoneCall /> Calling {matchFriend.name}...
+        </span>,
+        { position: "top-center" },
+      );
+    } else if (btn === "text") {
+      toast.success(
+        <span className="flex items-center gap-2">
+          <BiMessageDots /> Message sent to {matchFriend.name}
+        </span>,
+        { position: "top-center" },
+      );
+    } else {
+      toast.success(
+        <span className="flex items-center gap-2">
+          <LiaVideoSolid /> Starting video call with {matchFriend.name}
+        </span>,
+        { position: "top-center" },
+      );
+    }
   };
 
   // console.log("tracking btn", trackingBtn);
@@ -123,7 +147,7 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
         </div>
 
         {
-          timelines.slice(0 ,4).map((timeline, ind) => (
+          timelines.slice(0, 4).map((timeline, ind) => (
             <FriendDetailsTimelineCard key={ind} timeline={timeline} />
           ))
 

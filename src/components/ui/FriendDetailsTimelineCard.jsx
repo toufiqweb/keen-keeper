@@ -4,7 +4,7 @@ import { LiaVideoSolid } from "react-icons/lia";
 import { LuPhoneCall } from "react-icons/lu";
 
 const FriendDetailsTimelineCard = ({ timeline }) => {
-  console.log(timeline.date);
+//   console.log(timeline.date);
 
   return (
     <div className=" text-xl text-black flex flex-col sm:flex-row justify-center gap-4 sm:gap-2 sm:justify-between items-center border-b border-black/20 p-5">

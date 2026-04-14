@@ -6,7 +6,7 @@ const FriendCard = ({ friend }) => {
   // console.log(friend);
   const { id,name, picture, tags, status, days_since_contact } = friend;
   return (
-    <Link href={`/${id}`} className="card bg-base-100  shadow-sm">
+    <Link href={`/friends/${id}`} className="card bg-base-100  shadow-sm">
       <div className="card-body justify-center items-center space-y-2">
         <div className="rounded-full object-cover overflow-hidden w-20 h-20 flex justify-center items-center">
           <Image
