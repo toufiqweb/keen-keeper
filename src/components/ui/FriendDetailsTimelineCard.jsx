@@ -3,7 +3,7 @@ import { BiMessageDots } from "react-icons/bi";
 import { LiaVideoSolid } from "react-icons/lia";
 import { LuPhoneCall } from "react-icons/lu";
 
-const FriendDetailsTimelineCard = ({ timeline }) => {
+const FriendDetailsTimelineCard = ({ timeline  }) => {
 //   console.log(timeline.date);
 
   return (

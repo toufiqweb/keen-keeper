@@ -22,7 +22,7 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
     day: "numeric",
   });
 
-  console.log(formatted);
+  // console.log(formatted);
   const btnHandler = (btn) => {
     // console.log("call btn clicked", btn);
 
@@ -30,9 +30,11 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
       ...timelines,
       type: btn,
       formatted,
+      matchFriend,
+      
     };
 
-    const reverseTimeline =[...timelines, newTimeline].reverse()
+    const reverseTimeline =[...timelines, newTimeline ].reverse()
     setTimelines(reverseTimeline);
 
     if (btn === "call") {
@@ -60,7 +62,7 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
   };
 
   // console.log("tracking btn", trackingBtn);
-  console.log({ timelines: timelines });
+  // console.log({ timelines: timelines });
 
   return (
     <div className="col-span-1 lg:col-span-2 px-5   space-y-5">
