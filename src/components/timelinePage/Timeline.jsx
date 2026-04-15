@@ -30,9 +30,9 @@ const Timeline = () => {
 
   return (
     <div className="my-20 px-5 space-y-5">
-      <h1 className="text-4xl font-bold">Timeline</h1>
+      <h1 className="text-4xl text-center md:text-left font-bold">Timeline</h1>
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between gap-4 items-center">
         <div className="dropdown dropdown-bottom mt-10">
           <div
             tabIndex={0}

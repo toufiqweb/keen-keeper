@@ -3,13 +3,32 @@ import FriendDetailsPageRight from "@/components/friendDetailsPages/FriendDetail
 import React from "react";
 
 
+ const res = await fetch("https://keen-keeper-liard.vercel.app/data.json");
+  const friends = await res.json();
+
+export async function generateMetadata({ params }) {
+  const { friendId } = await params;
+  
+  const friend = friends.find((friend) => String(friend.id) === friendId);
+
+  if (!friend) {
+    return {
+      title: `Not found - KeenKeeper`,
+    };
+  }
+
+  return {
+    title: `KeenKeeper | ${friend.name} `,
+    description: friend.bio,
+  };
+}
+
 const FriendDetailPage = async ({ params }) => {
   const { friendId } = await params;
 
   // console.log(friendId);
 
-  const res = await fetch("https://keen-keeper-liard.vercel.app/data.json");
-  const friends = await res.json();
+ 
 
   console.log("friendId from params:", friendId);
 
