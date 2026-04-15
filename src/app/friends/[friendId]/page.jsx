@@ -2,13 +2,12 @@ import FriendDetailsPageLeft from "@/components/friendDetailsPages/FriendDetails
 import FriendDetailsPageRight from "@/components/friendDetailsPages/FriendDetailsPageRight";
 import React from "react";
 
-
- const res = await fetch("https://keen-keeper-liard.vercel.app/data.json");
-  const friends = await res.json();
+const res = await fetch("https://keen-keeper-liard.vercel.app/data.json");
+const friends = await res.json();
 
 export async function generateMetadata({ params }) {
   const { friendId } = await params;
-  
+
   const friend = friends.find((friend) => String(friend.id) === friendId);
 
   if (!friend) {
@@ -28,20 +27,22 @@ const FriendDetailPage = async ({ params }) => {
 
   // console.log(friendId);
 
- 
-
   console.log("friendId from params:", friendId);
 
   const matchFriend = friends.find((friend) => friend.id === Number(friendId));
   // console.log(matchFriend);
- 
 
   return (
-    <div className=" container mx-auto my-10 grid justify-items-center  md:grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 ">
+    <div className=" container mx-auto my-10 px-5 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
       {/* left */}
-      <FriendDetailsPageLeft matchFriend={matchFriend}/>
-      {/* right */}
-      <FriendDetailsPageRight matchFriend={matchFriend}/>
+      <div className="lg:col-span-1">
+        <FriendDetailsPageLeft matchFriend={matchFriend} />
+      </div>
+
+      <div className="lg:col-span-2">
+        {/* right */}
+        <FriendDetailsPageRight matchFriend={matchFriend} />
+      </div>
     </div>
   );
 };

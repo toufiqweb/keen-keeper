@@ -65,7 +65,7 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
   // console.log({ timelines: timelines });
 
   return (
-    <div className="col-span-1 lg:col-span-2 px-5   space-y-5">
+    <div className="space-y-8">
       <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 lg:gap-15">
         <div className="card bg-base-100 justify-center border border-base-200 items-center shadow-sm">
           <div className="p-10 text-center">

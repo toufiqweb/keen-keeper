@@ -7,7 +7,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const FriendDetailsPageLeft = ({ matchFriend }) => {
   const { picture, tags, bio, email, name, status } = matchFriend;
   return (
-    <div className="col-span-1  space-y-5 px-5 max-w-xl">
+    <div className=" space-y-6">
       <div className="card bg-base-100  shadow-sm">
         <div className="card-body justify-center items-center space-y-2">
           <div className="rounded-full object-cover overflow-hidden w-20 h-20 flex justify-center items-center">
@@ -19,7 +19,7 @@ const FriendDetailsPageLeft = ({ matchFriend }) => {
               height={100}
             />
           </div>
-          <h2 className="card-title text-2xl ">{name}</h2>
+          <h2 className="card-title text-2xl md:text-3xl">{name}</h2>
 
           <div className="card-actions">
             {tags.map((tag, index) => (
@@ -41,7 +41,7 @@ const FriendDetailsPageLeft = ({ matchFriend }) => {
           </div>
           <p className="text-lg text-center  text-black/50 italic font-bold">{`"${bio}"`}</p>
           <p className="text-lg text-center text-black/50 ">
-            Preferred:{email}
+            Preferred: {email}
           </p>
         </div>
       </div>

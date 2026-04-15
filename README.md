@@ -27,7 +27,7 @@
 
 It allows you to track interactions (calls, texts, video calls), visualize your engagement over time, and never let a meaningful relationship fade due to a busy schedule.
 
-Built with **Next.js**, it delivers a fast, responsive, and delightful user experience across all devices.
+Built with **Next.js**, it delivers a fast, responsive and delightful user experience across all devices.
 
 ## 📸 Screenshot
 
