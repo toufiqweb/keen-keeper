@@ -31,7 +31,6 @@ Built with **Next.js**, it delivers a fast, responsive and delightful user exper
 
 ## 📸 Screenshot
 
-*(Add a beautiful screenshot here once you have one. You can replace this line with an image link)*
 
 ![KeenKeeper Screenshot](https://i.ibb.co.com/63fx9Mb/keen-Keeper-Mockup.png)
 
