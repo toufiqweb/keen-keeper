@@ -78,8 +78,7 @@ Built with **Next.js**, it delivers a fast, responsive and delightful user exper
 | Category          | Technology                          |
 |-------------------|-------------------------------------|
 | Framework         | Next.js (App Router)                |
-| Library           | React.js                            |
-| Language          | JavaScript             |
+| Language          | JavaScript                          |
 | Styling           | Tailwind CSS + DaisyUI              |
 | Icons             | React Icons                         |
 | Notifications     | React Toastify                      |
